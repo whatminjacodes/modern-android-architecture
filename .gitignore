@@ -1,6 +1,7 @@
 # Gradle files
 modern-mvvm-architecture/.gradle/
 modern-mvvm-architecture/build/
+modern-mvvm-architecture/app/build/
 
 # Local configuration file (sdk path, etc)
 modern-mvvm-architecture/local.properties
