@@ -1,5 +1,6 @@
 package com.example.modernmvvmarchitecture
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,14 +17,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            // This theme is setup in Theme.kt file
             ModernMVVMArchitectureTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+                HomeFragment()
             }
         }
     }
@@ -38,9 +34,10 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 }
 
 @Preview(showBackground = true)
+@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES) // preview dark mode
 @Composable
 fun GreetingPreview() {
     ModernMVVMArchitectureTheme {
-        Greeting("Android")
+        Greeting("Android in Activity")
     }
 }
