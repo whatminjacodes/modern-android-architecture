@@ -11,13 +11,14 @@ import com.example.modernmvvmarchitecture.ui.theme.ModernMVVMArchitectureTheme
 
 @Composable
 fun DetailFragment(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    id: Int = -1,
 ) {
     Surface(
         modifier = modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-        DetailScreen()
+        DetailScreen(id = id)
     }
 }
 

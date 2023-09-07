@@ -17,7 +17,8 @@ import com.example.modernmvvmarchitecture.ui.theme.ModernMVVMArchitectureTheme
 
 @Composable
 fun DetailScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    id: Int = -1,
 ) {
     val scrollState = rememberScrollState()
     Column(
@@ -27,6 +28,17 @@ fun DetailScreen(
     ) {
         ProductHeader(
             modifier = Modifier.padding(16.dp)
+        )
+
+        Text(
+            text = "productId: $id",
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Medium,
+            modifier = Modifier.padding(
+                top = 16.dp,
+                start = 16.dp,
+                end = 16.dp
+            )
         )
 
         Text(

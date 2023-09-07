@@ -12,7 +12,8 @@ import com.example.modernmvvmarchitecture.ui.theme.ModernMVVMArchitectureTheme
 
 @Composable
 fun HomeScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClickToDetailScreen: (Int) -> Unit = {},
 ) {
     LazyVerticalGrid(   // Used for scroll instead of RecyclerView
         modifier = Modifier.padding(16.dp),
@@ -21,7 +22,15 @@ fun HomeScreen(
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(60) {
-            ProductCard()
+            ProductCard(
+                modifier = modifier
+                    .padding(
+                        top = 16.dp
+                    ),
+                onClickProduct = {
+                    onClickToDetailScreen.invoke(1)     // productId is 1 temporarily
+                }
+            )
         }
     }
 }

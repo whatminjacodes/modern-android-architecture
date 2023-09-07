@@ -4,8 +4,11 @@ package com.example.modernmvvmarchitecture
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,36 +25,45 @@ import androidx.compose.ui.unit.sp
 import com.example.modernmvvmarchitecture.ui.theme.ModernMVVMArchitectureTheme
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProductCard(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClickProduct: () -> Unit = {},
 ) {
-    Column(     // used instead of LinearLayout
-        modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
+    Card(
+        onClick = onClickProduct
     ) {
-        Image(
-            painter = painterResource(R.drawable.ic_launcher_foreground),
-            contentDescription = null,
+
+        Column(     // used instead of LinearLayout
             modifier = Modifier
-                .size(40.dp)
-                .clip(CircleShape)
-                .border(1.dp, MaterialTheme.colorScheme.secondary, CircleShape)
-        )
-        Text(
-            text = stringResource(id = R.string.product_name_placeholder),
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Bold,
-        )
-        Text(
-            text = stringResource(id = R.string.product_description_placeholder),
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            fontSize = 8.sp,
-            fontWeight = FontWeight.Medium,
-        )
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+
+            ) {
+            Image(
+                painter = painterResource(R.drawable.ic_launcher_foreground),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(40.dp)
+                    .clip(CircleShape)
+                    .border(1.dp, MaterialTheme.colorScheme.secondary, CircleShape)
+            )
+            Text(
+                text = stringResource(id = R.string.product_name_placeholder),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                text = stringResource(id = R.string.product_description_placeholder),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                fontSize = 8.sp,
+                fontWeight = FontWeight.Medium,
+            )
+        }
     }
 }
 
