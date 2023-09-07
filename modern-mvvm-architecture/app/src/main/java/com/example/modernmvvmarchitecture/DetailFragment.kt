@@ -1,5 +1,6 @@
 package com.example.modernmvvmarchitecture
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -9,21 +10,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.modernmvvmarchitecture.ui.theme.ModernMVVMArchitectureTheme
 
 @Composable
-fun HomeFragment(
+fun DetailFragment(
     modifier: Modifier = Modifier
 ) {
     Surface(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-        HomeScreen()
+        DetailScreen()
     }
 }
 
 @Preview(showBackground = true)
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun HomeFragmentPreview() {
-    ModernMVVMArchitectureTheme {
-        HomeFragment()
+fun DetailFragmentPreview() {
+    ModernMVVMArchitectureTheme() {
+        DetailFragment()
     }
 }

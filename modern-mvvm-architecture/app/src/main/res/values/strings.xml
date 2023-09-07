@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Modern MVVM Architecture</string>
+    <string name="product_name_placeholder">Product Name</string>
+    <string name="product_description_placeholder">Product Description</string>
+    <string name="product_description_longer_placeholder">We use Column to place ProductHeader, ProductImageCarousel, and Text contain description accordingly. Since I want detail pgae have scroll ability, I will use val scrollState = rememberScrollState() and put it in Column since vertical scroll function in modifier only receive scrollstate as a parameter.Now R.string.product_description_placeholder in string.xml, you may use long text or short text as you wish.Now we have to make DetailFragment.kt to contain DetailScreen.kt to fulfill Fragment level.</string>
 </resources>
