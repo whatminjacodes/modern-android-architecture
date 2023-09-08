@@ -7,12 +7,14 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.modernmvvmarchitecture.ui.theme.ModernMVVMArchitectureTheme
 
 @Composable
 fun DetailFragment(
     modifier: Modifier = Modifier,
     id: Int = -1,
+    detailViewModel: DetailViewModel = viewModel()
 ) {
     Surface(
         modifier = modifier.fillMaxSize(),

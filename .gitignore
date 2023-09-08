@@ -34,3 +34,6 @@ modern-mvvm-architecture/google-services.json
 modern-mvvm-architecture/*.hprof
 
 modern-mvvm-architecture/.DS_Store
+
+# Secrets
+modern-mvvm-architecture/secrets.properties
