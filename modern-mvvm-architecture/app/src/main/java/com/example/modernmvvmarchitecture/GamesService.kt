@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface GamesService {
     @GET("games")
     suspend fun getAllGames(
-        @Query("key") key: String = KEY_API,
+        @Query("key") key: String = BuildConfig.API_KEY,
         @Query("page") page: Int,
         @Query("page_size") pageSize: Int,
     ) : GamesResponse
@@ -19,7 +19,7 @@ interface GamesService {
     @GET("games/{id}")
     suspend fun getGamesDetail(
         @Path("id") id: Int,
-        @Query("key") key: String = KEY_API,
+        @Query("key") key: String = BuildConfig.API_KEY,
     ) : Games
 
     companion object {
@@ -34,7 +34,7 @@ interface GamesService {
                     )
                     .build()
                 val retrofit = Retrofit.Builder()
-                    .baseUrl("https://api.rawg.io/api/")
+                    .baseUrl(BuildConfig.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build()

@@ -7,12 +7,28 @@ android {
     namespace 'com.example.modernmvvmarchitecture'
     compileSdk 34
 
+    def secretPropertiesFile = rootProject.file("secrets.properties")
+    def secretProperties = new Properties()
+    secretProperties.load(new FileInputStream(secretPropertiesFile))
+
     defaultConfig {
         applicationId "com.example.modernmvvmarchitecture"
         minSdk 28
         targetSdk 34
         versionCode 1
         versionName "1.0"
+
+        buildConfigField(
+                "String",
+                "API_KEY",
+                secretProperties['API_KEY']
+        )
+        buildConfigField(
+                "String",
+                "BASE_URL",
+                secretProperties['BASE_URL']
+        )
+
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -26,6 +42,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
