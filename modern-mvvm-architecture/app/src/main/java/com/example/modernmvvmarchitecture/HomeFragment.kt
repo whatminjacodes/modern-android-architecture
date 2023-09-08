@@ -8,12 +8,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.modernmvvmarchitecture.ui.theme.ModernMVVMArchitectureTheme
 
 @Composable
 fun HomeFragment(
     modifier: Modifier = Modifier,
     onClickToDetailScreen: (Int) -> Unit = {},
+    homeViewModel: HomeViewModel = viewModel()
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -25,6 +28,7 @@ fun HomeFragment(
                     horizontal = 16.dp
                 ),
             onClickToDetailScreen = onClickToDetailScreen,
+            gamesList = homeViewModel.gamesListState.collectAsLazyPagingItems()
         )
     }
 }
